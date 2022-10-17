@@ -33,8 +33,9 @@ module Apigatewayv2Rack
 
     private def consume_body
       case
-      when body.respond_to?(:to_ary)
-        body.to_ary.join
+      # FIXME: Rack::CommonLogger uses Rack::BodyProxy, which performs logging when body is closed, is not compatible with #to_ary on Rack 3 specification
+      # when body.respond_to?(:to_ary)
+      #   body.to_ary.join
       when body.respond_to?(:each)
         buf = String.new
         body.each { |chunk| buf << chunk.b }
