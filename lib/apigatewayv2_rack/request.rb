@@ -2,6 +2,7 @@
 require 'uri'
 require 'base64'
 require 'rack'
+require 'stringio'
 
 require_relative "./error"
 
@@ -21,7 +22,11 @@ module Apigatewayv2Rack
     attr_reader :use_x_forwarded_host
 
     def elb?
-      refer.dig('requestContext')&.key?('elb')
+      event.dig('requestContext')&.key?('elb')
+    end
+
+    def multivalued?
+      event.key?('multiValueHeaders')
     end
 
     def protocol

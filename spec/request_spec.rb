@@ -52,6 +52,10 @@ RSpec.describe Apigatewayv2Rack::Request do
       }
     end
 
+    it "marks request as non-elb" do
+      expect(request.elb?).to eq(false)
+    end
+
     it { is_expected.to eq(
       'SERVER_PROTOCOL' => 'HTTP/1.1',
       'REQUEST_METHOD' => 'GET',
@@ -188,6 +192,14 @@ RSpec.describe Apigatewayv2Rack::Request do
         "body" => "",
         "isBase64Encoded" => false,
       }
+    end
+
+    it "marks request as elb" do
+      expect(request.elb?).to eq(true)
+    end
+
+    it "marks request as non-multivalued" do
+      expect(request.multivalued?).to eq(false)
     end
 
     it { is_expected.to eq(
