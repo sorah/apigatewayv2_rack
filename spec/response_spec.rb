@@ -15,7 +15,7 @@ RSpec.describe Apigatewayv2Rack::Response do
     it { is_expected.to eq(
       statusCode: 418,
       headers: {'content-type' => 'text/plain', 'cache-control' => 'public'},
-      body: Base64.encode64("I'm a teapot"),
+      body: Base64.strict_encode64("I'm a teapot"),
       isBase64Encoded: true
     ) }
   end
@@ -26,7 +26,7 @@ RSpec.describe Apigatewayv2Rack::Response do
     it { is_expected.to eq(
       statusCode: 418,
       headers: {'content-type' => 'text/plain', 'cache-control' => 'public'},
-      body: Base64.encode64("I'm a teapot\n..."),
+      body: Base64.strict_encode64("I'm a teapot\n..."),
       isBase64Encoded: true
     ) }
   end
@@ -41,7 +41,7 @@ RSpec.describe Apigatewayv2Rack::Response do
         statusCode: 200,
         headers: {'content-type' => 'text/plain'},
         cookies: ['akiyama=mizuki; Max-Age=10', 'shinonome=ena; Max-Age=10'],
-        body: Base64.encode64(""),
+        body: Base64.strict_encode64(""),
         isBase64Encoded: true
       ) }
     end
@@ -52,7 +52,7 @@ RSpec.describe Apigatewayv2Rack::Response do
       it { is_expected.to eq(
         statusCode: 200,
         multiValueHeaders: {"content-type" => ["text/plain"], 'set-cookie' => ['akiyama=mizuki; Max-Age=10', 'shinonome=ena; Max-Age=10']},
-        body: Base64.encode64(""),
+        body: Base64.strict_encode64(""),
         isBase64Encoded: true
       ) }
     end
@@ -67,7 +67,7 @@ RSpec.describe Apigatewayv2Rack::Response do
         statusCode: 200,
         headers: {'content-type' => 'text/plain'},
         cookies: ['akiyama=mizuki; Max-Age=10', 'shinonome=ena; Max-Age=10'],
-        body: Base64.encode64(""),
+        body: Base64.strict_encode64(""),
         isBase64Encoded: true
       ) }
     end
@@ -78,7 +78,7 @@ RSpec.describe Apigatewayv2Rack::Response do
       it { is_expected.to eq(
         statusCode: 200,
         multiValueHeaders: {"content-type" => ["text/plain"], 'set-cookie' => ['akiyama=mizuki; Max-Age=10', 'shinonome=ena; Max-Age=10']},
-        body: Base64.encode64(""),
+        body: Base64.strict_encode64(""),
         isBase64Encoded: true
       ) }
     end
