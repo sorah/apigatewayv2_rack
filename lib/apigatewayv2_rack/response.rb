@@ -80,7 +80,7 @@ module Apigatewayv2Rack
       {
         statusCode: status,
         isBase64Encoded: true,
-        body: Base64.encode64(consume_body),
+        body: Base64.strict_encode64(consume_body),
       }
         .merge(headers_as_response)
         .merge(cookies_as_response)
