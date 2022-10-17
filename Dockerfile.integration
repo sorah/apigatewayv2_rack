@@ -1,0 +1,13 @@
+FROM public.ecr.aws/lambda/ruby:2.7
+
+ENV GEM_HOME=${LAMBDA_TASK_ROOT}
+ENV BUNDLE_PATH=${LAMBDA_TASK_ROOT}/vendor/bundle
+COPY integration/Gemfile* ${LAMBDA_TASK_ROOT}/
+RUN bundle install
+
+COPY lib ${LAMBDA_TASK_ROOT}/lib
+COPY integration/* ${LAMBDA_TASK_ROOT}/
+
+#RUN find ${LAMBDA_TASK_ROOT}
+
+CMD ["main.Main.handle"]

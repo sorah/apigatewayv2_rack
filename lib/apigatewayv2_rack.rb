@@ -13,4 +13,24 @@ module Apigatewayv2Rack
     status, headers, body = app.call(req.to_h)
     Response.new(status: status, headers: headers, body: body, elb: req.elb?, multivalued: req.multivalued?).as_json
   end
+
+  module Handler
+    attr_reader :app 
+    def handle(event:, context:)
+      Apigatewayv2Rack.handle_request(event: event, context: context, app: @app)
+    end
+  end
+
+  def self.generate_handler(app)
+    m = Module.new
+    m.extend(Handler)
+    m.instance_variable_set(:@app, app)
+    m
+  end
+
+  def self.handler_from_rack_config_file(path = './config.ru')
+    require 'rack'
+    require 'rack/builder'
+    generate_handler(Rack::Builder.load_file(path, {})[0])
+  end
 end

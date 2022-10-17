@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+gem 'sinatra'
+gem 'rack', '<3'
+gem 'webrick'
+#gem 'rackup'
+#gem 'rack-session'

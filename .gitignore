@@ -9,3 +9,7 @@
 
 # rspec failure tracking
 .rspec_status
+
+integration/template.json
+.aws-sam/
+samconfig.toml
