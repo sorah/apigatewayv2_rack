@@ -31,6 +31,11 @@ module Apigatewayv2Rack
   def self.handler_from_rack_config_file(path = './config.ru')
     require 'rack'
     require 'rack/builder'
-    generate_handler(Rack::Builder.load_file(path, {})[0])
+    app = if Rack.release[0] == '2'
+      Rack::Builder.load_file(path, {})[0]
+    else
+      Rack::Builder.load_file(path)
+    end
+    generate_handler(app)
   end
 end
