@@ -33,6 +33,8 @@ module Apigatewayv2Rack
 
     private def consume_body
       case
+      when body.nil?
+        raise TypeError, "Rack app returned nil body"
       # FIXME: Rack::CommonLogger uses Rack::BodyProxy, which performs logging when body is closed, is not compatible with #to_ary on Rack 3 specification
       # when body.respond_to?(:to_ary)
       #   body.to_ary.join
