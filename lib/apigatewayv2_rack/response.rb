@@ -42,7 +42,7 @@ module Apigatewayv2Rack
         body.close if body.respond_to?(:close)
         buf
       else
-        stream = StringIO.new('', 'w')
+        stream = StringIO.new(String.new, 'w')
         body.call(stream)
         stream.string
       end
