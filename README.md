@@ -43,6 +43,13 @@ p resp.as_json
 
 See [./Dockerfile.integration](./Dockerfile.integration) and [./integration](./integration).
 
+### Middlewares
+
+This gem includes several utility middlewares:
+
+- [CloudfrontVerify](./lib/apigatewayv2_rack/middlewares/cloudfront_verify.rb): Verify `x-origin-header` value to protect unwanted direct access.
+- [CloudfrontXff](./lib/apigatewayv2_rack/middlewares/cloudfront_xff.rb): Respect `cloudfront-viewer-address` as `x-forwarded-for` value.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

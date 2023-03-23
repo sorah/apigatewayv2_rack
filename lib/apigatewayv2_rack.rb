@@ -5,6 +5,9 @@ require_relative "apigatewayv2_rack/error"
 require_relative "apigatewayv2_rack/request"
 require_relative "apigatewayv2_rack/response"
 
+require_relative "apigatewayv2_rack/middlewares/cloudfront_xff"
+require_relative "apigatewayv2_rack/middlewares/cloudfront_verify"
+
 module Apigatewayv2Rack
   # Takes Rack +app+, Lambda +event+ and +context+ of API Gateway V2 event and
   # returns a HTTP response from +app+ as API Gateway V2 Lambda event format.
