@@ -47,7 +47,7 @@ See [./Dockerfile.integration](./Dockerfile.integration) and [./integration](./i
 
 This gem includes several utility middlewares:
 
-- [CloudfrontVerify](./lib/apigatewayv2_rack/middlewares/cloudfront_verify.rb): Verify `x-origin-header` value to protect unwanted direct access.
+- [CloudfrontVerify](./lib/apigatewayv2_rack/middlewares/cloudfront_verify.rb): Verify `x-origin-verify` value to protect unwanted direct access.
 - [CloudfrontXff](./lib/apigatewayv2_rack/middlewares/cloudfront_xff.rb): Respect `cloudfront-viewer-address` as `x-forwarded-for` value.
 
 ## Development
