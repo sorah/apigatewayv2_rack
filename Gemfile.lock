@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     apigatewayv2_rack (0.2.0)
-      rack
+      rack (> 0.4)
 
 GEM
   remote: https://rubygems.org/
