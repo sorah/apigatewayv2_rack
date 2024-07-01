@@ -93,7 +93,7 @@ module Apigatewayv2Rack
         'CONTENT_LENGTH' => body.bytesize.to_s,
         'CONTENT_TYPE' => headers['content-type'] || '',
         'REMOTE_ADDR' => source_ip,
-        'rack.version' => Rack::VERSION,
+        'rack.version' => Rack.release,
         'rack.url_scheme' => (use_x_forwarded_host && headers['x-forwarded-proto']) || 'https',
         'rack.input' => StringIO.new(body),
         'rack.errors' => $stderr,
