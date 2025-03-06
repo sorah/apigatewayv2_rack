@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    apigatewayv2_rack (0.2.0)
+    apigatewayv2_rack (0.2.1)
       base64
       rack
       stringio
