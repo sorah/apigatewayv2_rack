@@ -81,6 +81,8 @@ module Apigatewayv2Rack
       end
     end
 
+    RACK_VERSION = defined?(Rack::VERSION) ? Rack::VERSION : Rack.release
+
     def to_h
       {
         'SERVER_PROTOCOL' => protocol,
@@ -93,7 +95,7 @@ module Apigatewayv2Rack
         'CONTENT_LENGTH' => body.bytesize.to_s,
         'CONTENT_TYPE' => headers['content-type'] || '',
         'REMOTE_ADDR' => source_ip,
-        'rack.version' => Rack::VERSION,
+        'rack.version' => RACK_VERSION,
         'rack.url_scheme' => (use_x_forwarded_host && headers['x-forwarded-proto']) || 'https',
         'rack.input' => StringIO.new(body),
         'rack.errors' => $stderr,
