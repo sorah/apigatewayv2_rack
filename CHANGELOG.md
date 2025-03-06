@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.2.1] - 2025-03-07
+
+- Address `Rack::VERSION` removal.
+
 ## [0.2.0] - 2023-03-24
 
 - `Apigatewayv2Rack.handle_request` now takes a block and pass rack env and `Apigatewayv2Rack::Request` object to allow final modification before passing env to a Rack app.
