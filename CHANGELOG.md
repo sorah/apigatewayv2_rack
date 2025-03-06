@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.2.2] - 2025-03-07
+
+- v0.2.1 accidentially released out of main branch. This release is to fix it.
+
 ## [0.2.1] - 2025-03-07
 
 - Address `Rack::VERSION` removal.
