@@ -93,7 +93,7 @@ module Apigatewayv2Rack
         'SERVER_NAME' => headers['host'] || 'unknown',
         'SERVER_PORT' => (use_x_forwarded_host && ['x-forwarded-port']&.to_i&.to_s) || '80',
         'CONTENT_LENGTH' => body.bytesize.to_s,
-        'CONTENT_TYPE' => headers['content-type'] || '',
+        'CONTENT_TYPE' => headers['content-type'],
         'REMOTE_ADDR' => source_ip,
         'rack.version' => RACK_VERSION,
         'rack.url_scheme' => (use_x_forwarded_host && headers['x-forwarded-proto']) || 'https',
