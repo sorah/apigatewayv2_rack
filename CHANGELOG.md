@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.3.0] - 2025-04-24
+
+- Stop defaulting CONTENT_TYPE to an empty String (`""`), which can cause Rails to complain as a unknown MIME type https://github.com/sorah/apigatewayv2_rack/pull/4
+
 ## [0.2.2] - 2025-03-07
 
 - v0.2.1 accidentially released out of main branch. This release is to fix it.
