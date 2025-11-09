@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.4.0] - 2025-11-10
 
 - Exclude integration test, GitHub workflows and Gemfile to be included in a released gem package. https://github.com/sorah/apigatewayv2_rack/pull/6
 
