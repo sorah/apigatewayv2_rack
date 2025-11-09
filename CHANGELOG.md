@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Exclude integration test, GitHub workflows and Gemfile to be included in a released gem package. https://github.com/sorah/apigatewayv2_rack/pull/6
+
 ## [0.3.0] - 2025-04-24
 
 - Stop defaulting CONTENT_TYPE to an empty String (`""`), which can cause Rails to complain as a unknown MIME type https://github.com/sorah/apigatewayv2_rack/pull/4
