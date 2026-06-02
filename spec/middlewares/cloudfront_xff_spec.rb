@@ -18,17 +18,17 @@ RSpec.describe Apigatewayv2Rack::Middlewares::CloudfrontXff do
 
   context "with valid ipv4 value" do
     let(:viewer_address) { '198.51.100.1:12345' }
-    it { is_expected.to eq(['198.51.100.1','12345','192.0.2.1']) }
+    it { is_expected.to eq(['198.51.100.1',nil,'192.0.2.1']) }
   end
 
   context "with valid ipv6 value" do
     let(:viewer_address) { 'fe80::dead:beef:5:8888' }
-    it { is_expected.to eq(['fe80::dead:beef:5','8888','192.0.2.1']) }
+    it { is_expected.to eq(['fe80::dead:beef:5',nil,'192.0.2.1']) }
   end
 
   context "with replace_remote_addr_with" do
     let(:viewer_address) { '198.51.100.1:12345' }
     let(:replace_remote_addr_with) { '127.0.0.2' }
-    it { is_expected.to eq(['198.51.100.1','12345','127.0.0.2']) }
+    it { is_expected.to eq(['198.51.100.1',nil,'127.0.0.2']) }
   end
 end

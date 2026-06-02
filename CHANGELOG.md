@@ -1,3 +1,7 @@
+## [Unreleased]
+
+- __Breaking__ Fixes CloudfrontXff middleware incorrectly sets `x-forwarded-port` header. It is expected to be a server port instead of client port in defacto standard.
+
 ## [0.4.0] - 2025-11-10
 
 - Exclude integration test, GitHub workflows and Gemfile to be included in a released gem package. https://github.com/sorah/apigatewayv2_rack/pull/6

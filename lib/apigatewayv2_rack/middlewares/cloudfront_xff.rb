@@ -25,9 +25,7 @@ module Apigatewayv2Rack
 
           if addr && port
             env['HTTP_X_APIGATEWAYV2RACK_ORIG_X_FORWARDED_FOR'] = env['HTTP_X_FORWARDED_FOR'] if env['HTTP_X_FORWARDED_FOR']
-            env['HTTP_X_APIGATEWAYV2RACK_ORIG_X_FORWARDED_PORT'] = env['HTTP_X_FORWARDED_PORT'] if env['HTTP_X_FORWARDED_PORT']
             env['HTTP_X_FORWARDED_FOR'] = addr
-            env['HTTP_X_FORWARDED_PORT'] = port
 
             if @replace_remote_addr_with
               env['HTTP_X_APIGATEWAYV2RACK_ORIG_REMOTE_ADDR'] = env['REMOTE_ADDR'] if env['REMOTE_ADDR']
