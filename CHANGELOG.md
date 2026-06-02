@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.5.0] - 2026-06-02
 
 - __Breaking__ Fixes CloudfrontXff middleware incorrectly sets `x-forwarded-port` header. It is expected to be a server port instead of client port in defacto standard.
 
